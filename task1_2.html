@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task1-1</title>
+	<style type="text/css">
+	html,body,header,nav,h1,.imgs-section dl dd{
+		margin: 0;
+		padding: 0;
+
+	}
+	body{
+		background: #eee;
+		font-family: 'microsoft yahei'
+	}
+	section{
+		margin:20px;
+		background: #fff;
+		padding:20px 20px;
+		box-shadow: 3px 3px 3px #ccc;
+	}
+	section h1{
+		font-size: 1.4em;
+	}
+	section h2{
+		font-size: 1.1em;
+		color: #ccc;
+	}
+	section span{
+		color: #ccc;
+	}
+	img{
+		width: 300px;
+
+	}
+	header{
+		background: #000;
+		overflow:hidden;
+		padding:0 2em;
+	}
+	header h1{
+		line-height: 60px;
+		color: #fff;
+		float: left;
+	}
+	.nav{
+		overflow: auto;
+		float: right;
+	}
+	.nav a{
+		display: inline-block;
+		float: left;
+		color: #fff;
+		margin-right:.5em;
+		font-size: 1.2em;
+		line-height: 60px;
+		text-decoration: none;
+		transition: .3s;
+	}
+	.nav a:hover{
+		background: #c0c0c0;
+	}
+
+	.imgs-section dl{
+		width: 250px;
+		height: 200px;
+		box-sizing: border-box;
+		padding: 10px;
+		border: 1px solid #ccc;
+		text-align: center;
+	}
+	.imgs-section dl img{
+		width:220px;
+		height: 160px;
+		
+	}
+	table{
+		width: 100%;
+		border-right:1px solid #ccc;border-bottom:1px solid #ccc;
+		
+	}
+	table td,table th{
+		border: 1px solid #ccc;
+		padding: .4em;
+		border-right: none;
+		border-bottom: none;
+	}
+	table th{
+		text-align: left;
+		background: #414141;
+		color: #fff;
+	}
+	table tr:last-child{
+		background: #ccc;
+	}
+	.sidebar{
+
+	}
+	.sidebar span{
+		display: block;
+
+	}
+	.sidebar button{
+		width: 100%;
+		border: none;
+		text-align: center;
+		background: #2F6FEA;
+		border-radius: 10px;
+		font-size: 20px;
+		line-height:40px;
+		color: #fff;
+		outline:none;
+		height:40px;
+		box-sizing: border-box;
+	}
+	.sidebar h1{
+		font-size: 1.1em;
+		position: relative;
+	}
+	.sidebar h1:before{
+		content: '';
+		position: absolute;
+		height:40px;
+		width: 3px;
+		background: #ccc;
+		left: -10px;
+		top: -8px;
+		
+	}
+	.sdb-main{
+		width: 50%;
+		margin: 0 auto;
+	}
+	footer{
+		background: #000;
+		color: #fff;
+		text-align: center;
+		padding: 30px;
+	}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>网站一级标题</h1>
+		<nav class="nav">
+			<a href="#!">导航连接1</a>
+			<a href="#!">导航连接2</a>
+			<a href="#!">导航连接3</a>
+			<a href="#!">导航连接4</a>
+		</nav>
+		
+	</header>
+	
+	<section>
+		<h1>文章一级标题</h1>
+		<h2>文章二级标题</h2>
+		<span>文章作者</span>
+		<span>文章发表时间</span>
+		<p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br/>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://ife.baidu.com">一个连接到ife。baidu。com</a>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，
+		</p>
+		<img src="http://pic.yesky.com/uploadImages/2015/237/17/INI2C01ZL39Q.jpg" alt="img">
+		<p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://ife.baidu.com">一个连接到ife。baidu。com</a>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，</p>
+	</section>
+	<section>
+		<h1>另一片文章一级标题</h1>
+		<h2>文章二级标题</h2>
+		<span>文章作者</span>
+		<span>文章发表时间</span>
+		<p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br/>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://ife.baidu.com">一个连接到ife。baidu。com</a>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，
+		</p>
+		<img src="http://pic.yesky.com/uploadImages/2015/237/17/INI2C01ZL39Q.jpg" alt="img">
+		<ul>
+			<li>列表项目1</li>
+			<li>列表项目2</li>
+			<li>列表项目3</li>
+		</ul>
+		</section>
+		<section class="imgs-section">
+			<dl>
+				<dt>好看的图片</dt>
+				<dd><img src="http://pic.yesky.com/uploadImages/2015/237/17/INI2C01ZL39Q.jpg" alt="img"></dd>
+			</dl>
+			<dl>
+				<dt>好看的图片</dt>
+				<dd><img src="http://pic.yesky.com/uploadImages/2015/237/17/INI2C01ZL39Q.jpg" alt="img"></dd>
+			</dl>
+			<dl>
+				<dt>好看的图片</dt>
+				<dd><img src="http://pic.yesky.com/uploadImages/2015/237/17/INI2C01ZL39Q.jpg" alt="img"></dd>
+			</dl>
+			<dl>
+				<dt>好看的图片</dt>
+				<dd><img src="http://pic.yesky.com/uploadImages/2015/237/17/INI2C01ZL39Q.jpg" alt="img"></dd>
+			</dl>
+			<dl>
+				<dt>好看的图片</dt>
+				<dd><img src="http://pic.yesky.com/uploadImages/2015/237/17/INI2C01ZL39Q.jpg" alt="img"></dd>
+			</dl>
+			<dl>
+				<dt>好看的图片</dt>
+				<dd><img src="http://pic.yesky.com/uploadImages/2015/237/17/INI2C01ZL39Q.jpg" alt="img"></dd>
+			</dl>
+
+		</section>
+	<section>	
+		<h1>最后一片文章一级标题</h1>
+		<h2>文章二级标题</h2>
+		<span>文章作者</span>
+		<span>文章发表时间</span>
+		<ol>
+			<li>排名1</li>
+			<li>排名2</li>
+			<li>排名3</li>
+		</ol>
+		<span>下面是一个表格添加了border=1</span>
+		<table border="0" cellspacing="0" cellpadding="0">
+			
+			<tr>
+				<th>表头</th>
+				<th>表头</th>
+				<th>表头</th>
+			</tr>
+			<tr>
+				<td>表内单元格</td>
+				<td>表内单元格</td>
+				<td><a href="">操作</a></td>
+			</tr>
+			<tr>
+				<td>表内单元格</td>
+				<td>表内单元格</td>
+				<td><a href="">操作</a></td>
+			</tr>
+			<tr>
+				<td>表内单元格</td>
+				<td>表内单元格</td>
+				<td><a href="">操作</a></td>
+			</tr>
+			<tr>
+				<td>表内单元格</td>
+				<td>表内单元格</td>
+				<td><a href="">操作</a></td>
+			</tr>
+			<tr>
+				<td>总计</td>
+				<td colspan="2">1000</td>
+				
+			</tr>
+
+		</table>
+	</section>
+
+	<section class="sidebar">
+		<h1>这里以后是一个侧栏，这是标题</h1>
+		<div class="sdb-main">
+			<!-- <h1>侧栏注册窗口标题</h1> -->
+			<div>
+				<label for="inputEmail">
+				请输入邮箱地址:
+			</label>
+			<input type="text" name="email" id="inputEmail">
+			<span>邮箱地址请按要求格式输入</span>
+			</div>
+			
+			
+			<div>
+				<label for="inputPass">
+					请输入密码:
+				</label>
+				<input type="password" name="password" id="inputPass">
+				
+			</div>
+			<div>
+			<label for="inputPass">
+					请重复输入密码:
+				</label>
+				<input type="password" name="password2" id="inputPass2">
+				<span>密码请为6-16位英文数字</span></div>
+			<form>
+				<div><label>性别:</label>
+				<input type="radio" name="sex" id="radio-man" value="man">
+				<label for="radio-man">男</label>
+				<input type="radio" name="sex" id="radio-woman" value="woman">
+				<label for="radio-woman">女</label></div>
+				<div><label>城市:</label>
+				<select>
+					<option value="beijing">北京</option>
+					<option value="shanghai">上海</option>
+					<option value="guangzhou">广州</option>
+				</select></div>
+				<div><label>爱好:</label>
+				<input type="checkbox" name="hobby" value="sport">
+				<label>运动</label>
+				<input type="checkbox" name="hobby" value="art">
+				<label>艺术</label>
+				<input type="checkbox" name="hobby" value="science">
+				<label>科学</label></div>
+				<div><label>个人表述:</label>
+				<textarea placeholder="这是多行输入框，输入个人苗圃数"></textarea></div>
+				
+				
+				
+				
+				
+		</form>
+		</div>
+		<button class="submit">确认提交</button>
+	</div>
+	<div>
+	
+	</section>
+	<footer>版权所有@</footer>
+</body>
+</html>
