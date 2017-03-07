@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .input-row{
+            width: 500px;
+            height: 50px;
+        }
+        .input-row label{
+            
+        }
+        .input-row input{
+
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="input-row">
+            <label for="">名称</label>
+            <input type="text" id="input">
+            <p id="p"></p>
+            <button class="btn">验证</button>
+        </div>
+         
+    </div>
+    <script>
+
+    function getLength(str){
+        var inputLength=0;
+        for(var i=0;i<str.length;i++){
+            if(0x00<str.charCodeAt(i)&&str.charCodeAt(i)<0xFF){
+                inputLength++;
+            }else{
+                inputLength+=2;
+            }
+        }
+        return inputLength;
+    }
+    document.querySelector(".btn").onclick=function(){
+        // alert(1)
+        var txt=document.querySelector("#input").value;
+        var warnText='';
+        if(getLength(txt)>=4&&getLength(txt)<=16){
+            document.querySelector("#p").innerHTML="名称正确"
+            document.querySelector("#input").style.border="1px solid green"
+        }else if(getLength(txt)==0){
+            document.querySelector("#p").innerHTML="名称不能为空"
+            document.querySelector("#input").style.border="1px solid red"
+        }else{
+            document.querySelector("#p").innerHTML="必填，长度为4-16个字符"
+            document.querySelector("#input").style.border="1px solid #ccc"
+        }
+    }
+    
+    </script>
+</body>
+</html>
