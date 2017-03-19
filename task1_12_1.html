@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo1 table td,.demo1 table th{
+            border:1px solid #ccc;
+            border-left: none;
+            border-top:none;
+            text-align: left;
+        }
+        .demo1 table {
+            border-left: 1px solid #ccc;
+            border-top:1px solid #ccc;
+        }
+        .demo1 table tr:nth-child(1){
+            background: #000 !important;
+            color:#fff;
+        }
+        .demo1 table tr:nth-child(odd){
+            background: #eee;
+        }
+        .demo1 table tr:nth-child(even){
+            background: #ccc;
+        }
+         .demo1 table tr:nth-child(2){
+            color:#f00;
+        }
+        .demo1 table tr:nth-child(3){
+            color:#f00;
+        }
+        .demo1 table tr:nth-child(4){
+            color:#f00;
+        }
+        
+        .demo3 .wrap{
+            width:500px;
+            height: 300px;
+            border: 1px solid #000;
+            position: relative;
+            overflow: hidden;
+        }
+        .box{
+            width:500px;
+            height: 300px;
+            background: cornflowerblue;
+            transition: .3s;
+            position: absolute;
+            
+        }
+        .box2{
+            background: #ccc;
+            left: 500px;
+        }
+        .box3{
+            left:1000px;
+            background: #f00;
+        }
+        .check{
+            position: absolute;
+            left: 0;
+            z-index: 22;
+        }
+        .check:nth-child(3){
+            left:13px;
+        }
+        .check:nth-child(5){
+            left:26px;
+        }
+        .check:checked+.box{
+            left: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="demo1">
+        <table>
+            <tbody>
+                <tr>
+                    <th>排名</th>
+                    <th>网站</th>
+                    <th>热度</th>
+                </tr>
+                <tr>
+                    <td>1.</td>
+                    <td>百度前端。。。</td>
+                    <td>13000</td>
+                </tr>
+                <tr>
+                    <td>1.</td>
+                    <td>百度前端。。。</td>
+                    <td>13000</td>
+                </tr>
+                <tr>
+                    <td>1.</td>
+                    <td>百度前端。。。</td>
+                    <td>13000</td>
+                </tr>
+                <tr>
+                    <td>1.</td>
+                    <td>百度前端。。。</td>
+                    <td>13000</td>
+                </tr>
+                <tr>
+                    <td>1.</td>
+                    <td>百度前端。。。</td>
+                    <td>13000</td>
+                </tr>
+                <tr>
+                    <td>1.</td>
+                    <td>百度前端。。。</td>
+                    <td>13000</td>
+                </tr>
+                <tr>
+                    <td>1.</td>
+                    <td>百度前端。。。</td>
+                    <td>13000</td>
+                </tr>
+                <tr>
+                    <td>1.</td>
+                    <td>百度前端。。。</td>
+                    <td>13000</td>
+                </tr>
+                <tr>
+                    <td>1.</td>
+                    <td>百度前端。。。</td>
+                    <td>13000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="demo2">
+        <input type="text" class="my-input">
+    </div>
+    <div class="demo3">
+       <div class="wrap">
+            <input type="radio" class="check" name="check">
+            <div class="box1 box"></div>
+            <input type="radio" class="check" name="check">
+            <div class="box2 box"></div>
+            <input type="radio" class="check" name="check">
+            <div class="box3 box"></div>
+       </div>
+    </div>
+</body>
+</html>
