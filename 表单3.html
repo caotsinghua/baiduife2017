@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        var str="123abc"
+        var str2="1997-11-30"
+        var reg1=/[a-z]/g;//查找方括号剑的任何字符
+        var reg2=/[^abc]/g;//不是方括号任意字符
+        var reg3=/\d+/g;
+        var reg4=/[\d]/g;
+        var reg5=/(19|20)\d{2}/;
+        // console.log(str.search(reg));
+        // console.log(str.replace(reg,'A'))
+        // console.log(str.match(reg));
+        // console.log(str.split(reg))
+        // console.log(reg1.exec(str))
+        // console.log(reg3.exec(str));
+        // console.log(reg4.exec(str));
+        console.log(reg5.exec(str2));
+        
+        // var a=[
+        //     ["aa","1"],
+        //     ["aa","2"],
+        //     ["aa","3"],
+        // ]
+        // function aaa(a,b){
+        //     return b[1]-a[1];
+        // }
+        // console.log(a.sort(aaa))
+    </script>
+</body>
+</html>

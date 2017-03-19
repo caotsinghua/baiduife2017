@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .wrap{
+            width:400px;
+            height: 200px;
+            background: #ccc;
+            overflow: hidden;
+            position: relative;
+        }
+        .circle{
+            width:100px;
+            height: 100px;
+            background: #fc0;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .left-circle{
+            top:-50px;
+            left:-50px;
+        }
+        .right-circle{
+            bottom:-50px;
+            right:-50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="left-circle circle"></div>
+        <div class="right-circle circle"></div>
+    </div>
+</body>
+</html>
