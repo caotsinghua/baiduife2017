@@ -9,27 +9,299 @@
         *{
             margin: 0;
             padding: 0;
-        }
-        .my-input{
-            width: 250px;
-            height: 40px;
-            font-size: 20px;
-            padding: 10px;
             box-sizing: border-box;
-            transition: .3s;
-            border-radius: 5px;
+        }
+        .wrap{
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .row{
+            width:100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom:20px;
+        }
+        .input-label{
+            flex:1;
+        }
+        .input-area{
+            flex:9;
+        }
+        .input-area input{
+            height: 40px;
+            width: 100%;
             outline: none;
             border: 1px solid #ccc;
+            transition: .3s;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 5px;
         }
-        .my-input:hover{
-            border: 1px solid lightblue;
+        .input-area input:hover{
+            border: 1px solid cadetblue;
         }
-        .my-input:focus{
-             border: 1px solid dodgerblue;
+        .input-area input:focus{
+            border: 1px solid cornflowerblue;
+        }
+        .row:last-child{
+            justify-content: flex-end;
+        }
+        .btn-primary{
+            color: #fff;
+            background: cornflowerblue;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 20px;
+            transition: .3s;
+            border-radius: 5px;
+            border: 1px solid dodgerblue;
+        }
+         .btn-primary:active{
+             box-shadow: 1px 1px 1px #000;
+             outline: none;
+         }
+        .input-area .wrong{
+            border: 1px solid #f00;
+        }
+        .input-area .success{
+            border: 1px solid limegreen;
+        }
+        .text-wrong{
+            color:#f00;
+            font-size: 14px;
+        }
+        .text-success{
+            color:limegreen;
+            font-size: 14px;
+        }
+        .text-primary text-hidden{
+            color:#ccc;
+            font-size: 14px;
+        }
+        .text-hidden{
+            display: none;
         }
     </style>
 </head>
 <body>
-    
+    <div class="wrap">
+        <form action="">
+            <div class="row">
+                <div class="input-label">
+                    <label for="">名称</label>
+                </div>
+                <div class="input-area">
+                    <input type="text">
+                    <span class="text-primary text-hidden">必填，长度为4~16个字符</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-label">
+                    <label for="">密码</label>
+                </div>
+                <div class="input-area">
+                    <input type="password">
+                    <span class="text-primary text-hidden">输入密码</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-label">
+                    <label for="">密码确认</label>
+                </div>
+                <div class="input-area">
+                    <input type="password">
+                    <span class="text-primary text-hidden">在此输入相同密码</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-label">
+                    <label for="">邮箱</label>
+                </div>
+                <div class="input-area">
+                    <input type="email">
+                    <span class="text-primary text-hidden">必填，输入邮箱</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-label">
+                    <label for="">手机</label>
+                </div>
+                <div class="input-area">
+                    <input type="text">
+                    <span class="text-primary text-hidden">输入手机号</span>
+                </div>
+            </div>
+            <div class="row">
+                <button  class="btn-primary" id="submit-btn">提交</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        'use strict'
+        var inputs=document.querySelectorAll(".input-area input");
+        var submitbtn=document.querySelector("#submit-btn");
+        var pass=[0,0,0,0,0];
+        var getLength=function(str){
+            let count=0;
+            for(let i=0;i<str.length;i++){
+                if(0<=str.charCodeAt(i)&&str.charCodeAt(i)<=255){
+                    count++;
+                }else{
+                    count+=2;
+                }
+            }
+            return count;
+        }
+
+        for(let i=0;i<inputs.length;i++){
+            inputs[i].onfocus=function(e){
+               this.nextElementSibling.classList.remove('text-hidden');
+            }
+            inputs[i].onblur=function(e){
+                let str=this.value;
+               switch(i){
+                   case 0:
+                        
+                        console.log(getLength(str))
+                        if(getLength(str)==0){
+                            pass[i]=0;
+                            this.classList.remove('success')
+                            this.classList.add('wrong');
+                            this.nextElementSibling.innerText="名称不能为空";
+                            this.nextElementSibling.classList.remove('text-success');
+                            this.nextElementSibling.classList.add('text-wrong');
+                        }else if(getLength(str)<4||getLength(str)>16){
+                            pass[i]=0;
+                            this.classList.remove('success')
+                            this.classList.add('wrong');
+                            this.nextElementSibling.innerText="名称请限制在4-16字符";
+                            this.nextElementSibling.classList.remove('text-success');
+                            this.nextElementSibling.classList.add('text-wrong');
+                        }else{
+                            pass[i]=1;
+                            this.classList.remove('wrong')
+                            this.classList.add('success');
+                            this.nextElementSibling.innerText="名称格式正确";
+                            this.nextElementSibling.classList.remove('text-wrong');
+                            this.nextElementSibling.classList.add('text-success');
+                        }
+                    break;
+                case 1:
+                        let passReg=/[0-9|A-Z|a-z]{8,30}/;//数字字母 8-30
+                        if(getLength(str)==0){
+                            pass[i]=0;
+                            this.classList.remove('success')
+                            this.classList.add('wrong');
+                            this.nextElementSibling.innerText="密码不能为空";
+                            this.nextElementSibling.classList.remove('text-success');
+                            this.nextElementSibling.classList.add('text-wrong');
+                        }else if(!passReg.test(str)){
+                            pass[i]=0;
+                            this.classList.remove('success')
+                            this.classList.add('wrong');
+                            this.nextElementSibling.innerText="名称请限制在8-30字母和数字";
+                            this.nextElementSibling.classList.remove('text-success');
+                            this.nextElementSibling.classList.add('text-wrong');
+                        }else{
+                            pass[i]=1;
+                            this.classList.remove('wrong')
+                            this.classList.add('success');
+                            this.nextElementSibling.innerText="密码格式正确";
+                            this.nextElementSibling.classList.remove('text-wrong');
+                            this.nextElementSibling.classList.add('text-success');
+                        }
+                    break;
+                case 2:
+                        let lastValue=inputs[i-1].value;
+                        if(getLength(str)==0){
+                            pass[i]=0;
+                            this.classList.remove('success')
+                            this.classList.add('wrong');
+                            this.nextElementSibling.innerText="密码不能为空";
+                            this.nextElementSibling.classList.remove('text-success');
+                            this.nextElementSibling.classList.add('text-wrong');
+                        }else if(!(lastValue==str)){
+                            pass[i]=0;
+                            this.classList.remove('success')
+                            this.classList.add('wrong');
+                            this.nextElementSibling.innerText="请输入与上一次一样的密码";
+                            this.nextElementSibling.classList.remove('text-success');
+                            this.nextElementSibling.classList.add('text-wrong');
+                        }else if(lastValue==str){
+                            pass[i]=1;
+                            this.classList.remove('wrong')
+                            this.classList.add('success');
+                            this.nextElementSibling.innerText="密码格式正确";
+                            this.nextElementSibling.classList.remove('text-wrong');
+                            this.nextElementSibling.classList.add('text-success');
+                        }
+                    break;
+                case 3:
+                        let mailReg=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/ ;//邮箱正则
+                        if(getLength(str)==0){
+                            pass[i]=0;
+                            this.classList.remove('success')
+                            this.classList.add('wrong');
+                            this.nextElementSibling.innerText="邮箱不能为空";
+                            this.nextElementSibling.classList.remove('text-success');
+                            this.nextElementSibling.classList.add('text-wrong');
+                        }else if(!mailReg.test(str)){
+                            pass[i]=0;
+                            this.classList.remove('success')
+                            this.classList.add('wrong');
+                            this.nextElementSibling.innerText="邮箱格式错误";
+                            this.nextElementSibling.classList.remove('text-success');
+                            this.nextElementSibling.classList.add('text-wrong');
+                        }else{
+                            pass[i]=1;
+                            this.classList.remove('wrong')
+                            this.classList.add('success');
+                            this.nextElementSibling.innerText="邮箱格式正确";
+                            this.nextElementSibling.classList.remove('text-wrong');
+                            this.nextElementSibling.classList.add('text-success');
+                        }
+                    break;
+                 case 4:
+                        
+                        if(getLength(str)==0){
+                            pass[i]=0;
+                            this.classList.remove('success')
+                            this.classList.add('wrong');
+                            this.nextElementSibling.innerText="手机号码不能为空";
+                            this.nextElementSibling.classList.remove('text-success');
+                            this.nextElementSibling.classList.add('text-wrong');
+                        }else if(getLength(str)!=11){
+                            pass[i]=0;
+                            this.classList.remove('success')
+                            this.classList.add('wrong');
+                            this.nextElementSibling.innerText="请输入11位手机号";
+                            this.nextElementSibling.classList.remove('text-success');
+                            this.nextElementSibling.classList.add('text-wrong');
+                        }else{
+                            pass[i]=1;
+                            this.classList.remove('wrong')
+                            this.classList.add('success');
+                            this.nextElementSibling.innerText="手机号码格式正确";
+                            this.nextElementSibling.classList.remove('text-wrong');
+                            this.nextElementSibling.classList.add('text-success');
+                        }
+                    break;
+               }
+            }
+        }
+        submitbtn.onclick=function(){
+           var t=pass.every(function(item,index,array){
+                return item==1;
+           })
+           if(t){
+               alert("通过验证")
+           }else{
+               alert("验证失败！")
+           }
+        }
+
+    </script>
 </body>
 </html>
