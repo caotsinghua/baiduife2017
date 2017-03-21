@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+     
+        .demo{
+            width: 800px;
+            height: 800px;
+            position: relative;
+            left: 50%;
+            margin-left: -400px;
+            top: 50px;
+        }
+        .row,.col{
+            position: absolute;
+        }
+        .row{
+            width: 800px;
+            height: 50px;
+            display: flex;
+            top:-50px;
+            left: 50%;
+            margin-left: -400px;
+            line-height: 50px;
+            font-size: 18px;
+            text-align: center;
+        }
+        .row div,.col div{
+            flex: 1;
+        }
+        .col{
+            display: flex;
+            flex-direction: column;
+            height: 800px;
+            width: 50px;
+            font-size: 18px;
+            text-align: center;
+            top: 0px;
+            left: 50%;
+            margin-left:-450px;
+            line-height: 80px;
+        }
+        .box{
+            box-sizing: border-box;
+            transition: .3s ease-in-out;
+            width: 80px;
+            height: 80px;
+            background: #f00;
+            border-top: 20px solid darkblue;
+            position: absolute;
+            left: 0;
+            top:0;
+        }
+        .console{
+            width: 300px;
+            position: absolute;
+            top: 100px;
+            left: 10px;
+        }
+        .console p{
+           margin-bottom: 20px;
+        }
+        .console input{
+            width: 150px;
+            height: 30px;
+        }
+        .console button{
+            width: 50px;
+            height: 30px;
+            background: palevioletred;
+            border-radius: 5px;
+            border: none;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo">
+        <div class="box" id="box"></div>
+        <canvas class="canvas" id="canvas" width="800" height="800">
+            sorry,your broswer dont support canvas
+        </canvas>
+        <div class="row">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>10</div>
+        </div>
+        <div class="col">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>10</div>
+        </div>
+    </div>
+    <div class="console">
+        <p>控制台</p>
+        <input type="text" id="consoleInput">
+        <button class="action" id="action">执行</button>
+    </div>
+    <script>
+        var canvas=document.getElementById("canvas");
+        var ctx=canvas.getContext('2d');
+        var box=document.getElementById("box");
+        var action=document.getElementById('action');
+        var consoleInput=document.getElementById('consoleInput');
+        var createbox=function(){
+            this.direction='top',
+            this.top=0,
+            this.left=0
+        }
+        function draw(){
+           ctx.strokeRect(0,0,800,800);
+           for(let i=1;i<=9;i++){
+                ctx.beginPath();
+                ctx.moveTo(0,80*i);
+                ctx.lineTo(800,80*i);
+                ctx.stroke();
+                ctx.closePath();
+           }
+           for(let i=1;i<=9;i++){
+                ctx.beginPath();
+                ctx.moveTo(80*i,0);
+                ctx.lineTo(80*i,800);
+                ctx.stroke();
+                ctx.closePath();
+           }
+        }
+        var thebox=new createbox();
+        createbox.prototype.turnLeft=function(){
+            this.direction='left';
+            box.style.transform='rotate(-90deg)';
+        }
+        createbox.prototype.turnTop=function(){
+            this.direction='top';
+            box.style.transform='rotate(0deg)';
+        }
+        createbox.prototype.turnRight=function(){
+            this.direction='right';
+            box.style.transform='rotate(90deg)';
+        }
+        createbox.prototype.turnBottom=function(){
+            this.direction='bottom';
+            box.style.transform='rotate(180deg)';
+        }
+        createbox.prototype.go=function(){
+            switch(this.direction){
+                case 'top':
+                this.turnTop();
+                if(this.top>=80){
+                   this.top-=80;
+                   box.style.top=this.top+'px';
+                }else{
+                    alert('到达边缘，无法移动')
+                }
+                break;
+                case 'right':
+                this.turnRight();
+                if(this.left<=640){
+                   this.left+=80;
+                   box.style.left=this.left+'px';
+                }else{
+                    alert('到达边缘，无法移动')
+                }
+                break;
+                case 'bottom':
+                this.turnBottom();
+                if(this.top<=640){
+                   this.top+=80;
+                   box.style.top=this.top+'px';
+                }else{
+                    alert('到达边缘，无法移动')
+                }
+                break;
+                case 'left':
+                this.turnLeft();
+                if(this.left>=80){
+                   this.left-=80;
+                   box.style.left=this.left+'px';
+                }else{
+                    alert('到达边缘，无法移动')
+                }
+                break;
+            }
+        }
+        function init(){
+            draw();
+            box.style.top=thebox.top+'px';
+            box.style.left=thebox.left+'px';
+            thebox.turnTop();
+        }
+        action.onclick=function(){
+            var text=consoleInput.value;
+            switch(text){
+                case 'LEFT':
+                thebox.turnLeft();
+                break;
+                case 'RIGHT':
+                thebox.turnRight();break;
+                case 'BOTTOM':
+                thebox.turnBottom();break;
+                case 'TOP':
+                thebox.turnTop();break;
+                case 'GO':
+                thebox.go();
+                break;
+                default:alert('指令错误！');break;
+            }
+        }
+        document.onkeydown=function(e){
+            // alert(e.keyCode);
+            switch(e.keyCode){
+                case 38:
+                    thebox.turnTop();
+                    thebox.go();
+                    break;
+                case 39:
+                    thebox.turnRight();
+                    thebox.go();
+                    break;
+                case 37:
+                    thebox.turnLeft();
+                    thebox.go();
+                    break;
+                case 40:
+                    thebox.turnBottom();
+                    thebox.go();
+                    break;
+            }
+
+        }
+        window.onload=function(){
+            init();
+        }
+    </script>
+</body>
+</html>

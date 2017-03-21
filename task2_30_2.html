@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style> 
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            width: 800px;
+            padding: 20px;
+            margin: 0 auto;
+        }
+        .row{
+            margin-bottom: 20px;
+        }
+        
+        .hidden{
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="demo1">
+            <div class="row">
+                <input type="radio" name="isStu" value="atSchool" checked class="is-stu radio">
+                <label for="">在校生</label>
+                <input type="radio" name="isStu" value="outSchool" class="no-stu radio">
+                <label for="">非在校生</label>
+            </div>
+            
+            <div class="row at-school">
+                 <label for="">学校</label>
+                <select name="city" id="select-city">
+                    <option value="beijing">北京</option>
+                    <option value="nanjing">南京</option>
+                    <option value="shanghai">上海</option>
+                </select>
+                <select name="school" id="school">
+                </select>
+            </div>
+           <div class="row out-school">
+               <label for="">就业单位</label>
+               <input type="text">
+           </div>
+        </div>
+    </div>
+    <script>
+        var bjSchools=['北京大学','清华大学'],
+            njSchools=['南京大学','东南大学'],
+            shSchools=['复旦大学','上海大学'];
+        var radios=document.querySelectorAll(".radio");
+        console.log(radios)
+        var schoolSelect=document.getElementById("school"),
+            citySelect=document.getElementById("select-city");
+        function clearSchools(schoolSelect){//删除所有节点
+            var len=schoolSelect.childNodes.length;
+            for(let i=0;i<len;i++){
+                schoolSelect.removeChild(schoolSelect.lastChild);
+            }
+        }
+        function addSchools(schools){
+            clearSchools(schoolSelect);
+            schools.forEach(function(item,index,array){
+                 let opt=document.createElement('option');
+                 opt.innerText=item;
+                 opt.value=item;
+                 schoolSelect.appendChild(opt);
+            })
+
+        }
+        function choseSchools(){
+            let city=citySelect.value;
+            switch(city){
+                case 'beijing':
+                addSchools(bjSchools);
+                break;
+                case 'nanjing':
+                addSchools(njSchools);
+                break;
+                case 'shanghai':
+                addSchools(shSchools);
+                break;
+            }
+        }
+        var initForm=function(){
+            let isstu=document.querySelector(".is-stu").checked,
+                atSchool= document.querySelector(".at-school"),
+                outSchool=document.querySelector(".out-school");
+            choseSchools();
+            if(isstu){
+                outSchool.classList.remove("show");
+                outSchool.classList.add("hidden");
+                atSchool.classList.remove("hidden");
+                atSchool.classList.add("show");
+                
+            }else{
+                atSchool.classList.remove("show");
+                atSchool.classList.add("hidden");
+                outSchool.classList.remove("hidden");
+                outSchool.classList.add("show");
+            }
+            
+        }
+        initForm();
+        radios.forEach(function(item){
+            item.onchange=function(){
+                initForm();
+            }
+        })
+        citySelect.onchange=function(){
+            console.log(citySelect.value)
+            choseSchools();
+        }
+    </script>
+</body>
+</html>
