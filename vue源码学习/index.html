@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript" src="./vue2.js"></script>
+	<script type="text/javascript">
+		let a={
+			name:'tsinghua',
+			age:20,
+			skills:{
+				js:'good',
+				html:'good'
+			}
+		}
+		let app=new MyVue(a);
+		app.$watch('age',function(oldval,newval){
+			console.log(`年龄从${oldval}变味${newval}`)
+		})
+	</script>
+</body>
+</html>

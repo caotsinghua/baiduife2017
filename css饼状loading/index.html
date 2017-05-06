@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		.wrap{
+			width: 100%;
+			height: 100%;
+		}
+		.loading{
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+			border: 5px solid #E024F3;
+			border-top-color: transparent;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -75px;
+			margin-left: -75px;
+			animation: loading infinite 3s linear;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+		}
+
+		.left{
+			width: 65px;
+			height: 130px;
+			background: blue;
+			overflow: hidden;
+			border-radius: 100px 0 0 100px;
+			
+		}
+		.right{
+			overflow: hidden;
+			width: 65px;
+			height: 130px;
+			background: blue;
+			border-radius: 0 100px 100px 0;
+
+		}
+		.inner-left{
+			width: 65px;
+			height: 130px;
+			background: yellow;
+			border-radius: 100px 0 0 100px;
+			transform: rotate(0);
+			animation: loadingleft 3s infinite  linear;
+			transform-origin: 100% 50%;
+			z-index: 999;
+		}
+		.inner-right{
+			width: 65px;
+			height: 130px;
+			background: yellow;
+			border-radius: 0 100px 100px 0;
+			transform: rotate(0);
+			animation: loadingright 3s infinite  linear;
+			 transform-origin: 0% 50%;
+			 z-index: 999;
+		}
+		@keyframes loading{
+			from{
+				transform: rotate(0deg)
+			}to{
+				transform: rotate(-360deg)
+			}
+		}
+		@keyframes loadingleft{
+			0%{
+				transform: rotate(0deg)
+			}
+			25%{
+				transform: rotate(-180deg)
+			}
+			50%{
+				transform: rotate(-180deg)
+			}
+			75%{
+				transform: rotate(-360deg)
+			}
+			100%{
+				transform: rotate(-360deg)
+			}
+
+		}
+		@keyframes loadingright{
+			0%{
+				transform: rotate(0deg)
+			}
+			25%{
+				transform: rotate(0deg)
+			}
+			50%{
+				transform: rotate(-180deg)
+			}
+			75%{
+				transform: rotate(-180deg)
+			}
+			100%{
+				transform: rotate(-360deg)
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="loading">
+
+				<div class="left">
+					<div class="inner-left"></div>
+				</div>
+				<div class="right">
+					<div class="inner-right"></div>
+				</div>
+		</div>
+
+	</div>
+</body>
+</html>
