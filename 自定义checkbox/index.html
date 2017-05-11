@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html,body{
+			background: #eee;
+		}
+		.app{
+			width: 500px;
+			margin: 0 auto;
+			padding: 30px;
+		}
+		.form1 .radio, .form1 .checkbox{
+			display: none;
+		}
+		.form1 .radio-icon{
+			display: inline-block;
+			width: 1rem;
+			height: 1rem;
+			background-image: url('../imgs/sprite.png');
+			background-repeat: no-repeat;
+			background-position: -24px -10px;
+		}
+		.form1 .radio:checked+.radio-icon{
+			background: url('../imgs/sprite.png')  no-repeat -59px -10px;
+		}
+
+		.form1 .checkbox-icon{
+			display: inline-block;
+			width: 1rem;
+			height: 1rem;
+			background-image: url('../imgs/sprite.png');
+			background-repeat: no-repeat;
+			background-position: -24px -31px;
+		}
+		.form1 .checkbox:checked+.checkbox-icon{
+			background: url('../imgs/sprite.png')  no-repeat -59px -31px;
+		}
+
+		.form2 .radio, .form2 .checkbox{
+			display: none;
+		}
+		.form2 .radio-icon,.form2 .checkbox-icon{
+			display: inline-block;
+			width: 1rem;
+			height: 1rem;
+		}
+		.form2 .radio-icon::after, .form2 .checkbox-icon::after{
+			display: block;
+			content: '';
+			width: 1rem;
+			height: 1rem;
+			position: absolute;
+			z-index: 20;
+		}
+		.form2 .radio-icon::after{
+			background-image: url('../imgs/sprite.png');
+			background-repeat: no-repeat;
+			background-position: -24px -10px;
+		}
+		.form2 .checkbox-icon::after{
+			background-image: url('../imgs/sprite.png');
+			background-repeat: no-repeat;
+			background-position:  -24px -31px;
+		}
+		.form2 .radio:checked+.radio-icon::after{
+			background-image: url('../imgs/sprite.png');
+			background-repeat: no-repeat;
+			background-position: -59px -10px;
+		}
+		.form2 .checkbox:checked+.checkbox-icon::after{
+			background-image: url('../imgs/sprite.png');
+			background-repeat: no-repeat;
+			background-position:  -59px -31px;
+		}
+	</style>
+</head>
+<body>
+	<div class="app">
+		<form class="form1">
+			<h3>使用雪碧图</h3>
+			<div>
+				<input type="radio" name="sex" id="male" value="male" class="radio">
+				<label for="male" class="radio-icon"></label>
+				<label for="male">男</label>
+			</div>
+			<div>
+				<input type="radio" name="sex" id="female" value="female" class="radio">
+				<label for="female" class="radio-icon"></label>
+				<label for="female">女</label>
+			</div>
+			<div>
+				<input type="checkbox" name="sex" id="one" value="1" class="checkbox">
+				<label for="one" class="checkbox-icon"></label>
+				<label for="one">one</label>
+			</div>
+			<div>
+				<input type="checkbox" name="sex" id="two" value="2" class="checkbox">
+				<label for="two" class="checkbox-icon"></label>
+				<label for="two">two</label>
+			</div>
+		</form>
+
+		<form class="form2">
+			<h3>使用伪元素</h3>
+			<div>
+				<input type="radio" name="sex" id="male2" value="male" class="radio">
+				<label for="male2" class="radio-icon"></label>
+				<label for="male2">男</label>
+			</div>
+			<div>
+				<input type="radio" name="sex" id="female2" value="female" class="radio">
+				<label for="female2" class="radio-icon"></label>
+				<label for="female2">女</label>
+			</div>
+			<div>
+				<input type="checkbox"  id="one2" value="1" class="checkbox">
+				<label for="one2" class="checkbox-icon"></label>
+				<label for="one2">one</label>
+			</div>
+			<div>
+				<input type="checkbox"  id="two2" value="2" class="checkbox">
+				<label for="two2" class="checkbox-icon"></label>
+				<label for="two2">two</label>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
