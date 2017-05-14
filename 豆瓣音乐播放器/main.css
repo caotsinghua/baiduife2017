@@ -1,0 +1,76 @@
+*{
+	box-sizing: border-box;
+}
+.main{
+	width: 800px;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+.player-wrap{
+	border: 1px solid #ccc;
+	border-right: none;
+	padding: 2rem;
+	display: flex;
+	height: 200px;
+	flex-direction: column;
+}
+.poster-wrap{
+	border: 1px solid #ccc;
+	height: 200px;
+	border-left: none;
+}
+.poster{
+	width: 180px;
+	height:180px;
+	margin: 6px auto;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.poster .poster-img{
+	width: 100%;
+	height:100%;
+}
+.music-info .music-name{
+	margin-bottom: 1rem;
+}
+.controls-top,.controls-bottom{
+	display: flex;
+	justify-content: space-between;
+}
+.controls-top .time{
+	color: #ccc;
+}
+.controls-top a{
+	color: #ccc;
+	margin-left: 3px;
+}
+.controls-bottom .am-icon-btn{
+	height: 2.5rem;
+	width: 2.5rem;
+	line-height: 2.5rem;
+	font-size: 1.5rem;
+}
+.progress{
+	width: 100%;
+	height: 2px;
+	background:#ccc;
+	margin: 1rem 0;
+	position: relative;
+}
+.progress-inner{
+	width: 0;
+	height: 2px;
+	background: green;
+	transition: 0.3s linear;
+}
+.playing{
+	animation: poster 3s infinite linear;
+}
+@keyframes poster{
+	from {
+		transform: rotate(0deg)
+	}to{
+		transform: rotate(360deg)
+	}
+}
