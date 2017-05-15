@@ -7,6 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
+	<div class="back"></div>
+	<div class="mask"></div>
 	<div class="main">
 		<div class="search-bar">
 			<form class="am-form am-form-horizontal">
@@ -20,19 +22,29 @@
 			    </div>
 			</form>
 		</div>
-		<div class="songs-list-wrap">
-			<table class="am-table am-table-striped am-table-hover am-table-centered" id="songList">
-			    <tr>
-					<th>歌名</th>
-					<th>歌手</th>
-					<th>操作</th>
-			    </tr>
-			  	<tr>
-					<td>暂无歌曲</td>
-			  	</tr>
-			</table>
+		<div class="am-g">
+			<div class="am-u-sm-6">
+				<div class="songs-list-wrap">
+					<table class="am-table am-table-striped am-table-hover am-table-centered" id="songList">
+					    <tr>
+							<th>歌名</th>
+							<th>歌手</th>
+							<th>操作</th>
+					    </tr>
+					  	<tr >
+							<td colspan="3">暂无歌曲</td>
+					  	</tr>
+					</table>
+				</div>
+			</div>
+			<div class="am-u-sm-6">
+				<div class="lyric-wrap">
+					<p class="lyric">暂无歌词</p>
+				</div>
+			</div>
 		</div>
-		<div class="app" id="musicPlayer">
+	</div>
+	<div class="app" id="musicPlayer">
 			<audio src="" class="music" id="music" autoplay>不支持audio</audio>
 			<div class="am-g">
 				<div class="am-u-sm-8 player-wrap">
@@ -42,23 +54,28 @@
 					</div>
 					<div class="controls-top">
 						<div class="left">
-							<span class="time">0</span>
-							<a href="##" class="am-icon-volume-up volume"></a>
+							<span class="time">00:00/00:00</span>
+							<a href="javascript:;" class="am-icon-volume-up volume"></a>
+							<div class="volume-progress">
+								<div class="volume-progress-inner"></div>
+								<div class="volume-progress-controller"></div>
+							</div>
 						</div>
 						<div class="right">
-							<a href="##" class="am-icon-music show-lyric"></a>
-							<a href="##" class="am-icon-download download"></a>
-							<a href="##" class="am-icon-arrows add"></a>
-							<a href="##" class="am-icon-share-alt share"></a>
+							<a href="##" class="am-icon-music show-lyric" title="歌词"></a>
+							<a href="##" class="am-icon-download download" title="下载"></a>
+							<a href="##" class="am-icon-arrows add" title="加入歌单"></a>
+							<a href="##" class="am-icon-share-alt share" title="分享"></a>
 						</div>
 					</div>
 					<div class="progress">
 						<div class="progress-inner"></div>
+						<div class="progress-controller"></div>
 					</div>
 					<div class="controls-bottom">
 						<div class="left">
-							<a href="##" class="am-icon-btn am-icon-heart-o"></a>
-							<a href="##" class="am-icon-btn am-icon-shopping-basket"></a>
+							<a href="##" class="am-icon-btn am-icon-heart-o" ></a>
+							<a href="##" class="am-icon-btn am-icon-shopping-basket" title="从歌单删除"></a>
 						</div>
 						<div class="left">
 							<a href="javascript:;" class="am-icon-btn am-icon-step-backward" id="prev"></a>
@@ -74,7 +91,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 	<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 	<script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
 	<script type="text/javascript" src="main.js"></script>
